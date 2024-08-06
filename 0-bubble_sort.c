@@ -14,7 +14,7 @@ void bubble_sort(int *array, size_t size)
 	int temp = 0;
 	int swap_flag = 1;	/* Initialize to 1 to lauch while loop */
 
-	if (size < 2)	/* No need to sort */
+	if (size < 2 || array == NULL)	/* No need to sort */
 		return;
 
 	while (swap_flag != 0)	/* If no swap, the array is sorted */
