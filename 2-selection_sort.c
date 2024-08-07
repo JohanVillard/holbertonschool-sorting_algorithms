@@ -9,7 +9,7 @@
 void selection_sort(int *array, size_t size)
 {
 	size_t i, j = 0;
-	int least_element, flag = 1;
+	int least_element = 0, temp = 0, flag = 1;
 
 	if (size < 2)	/* No need to sort */
 		return;
@@ -24,12 +24,16 @@ void selection_sort(int *array, size_t size)
 		{
 			if (array[i] < least_element)	/* If find lesser value */
 			{
+				temp = least_element;
 				least_element = array[i];	/* Store the least element */
-				array[i] = array[j];	/* Swap */
-				array[j] = least_element;
-				flag = 1;	/* Loop don't stop */
-				print_array(array, size);
+				array[i] = temp;
+				flag = 1;	/* Ok for swap and loop don't stop */
 			}
+		}
+		if (flag == 1)
+		{
+			array[j] = least_element;	/* Store least element from 0 to size */
+			print_array(array, size);
 		}
 		j++;	/* Go to next index to check and sort */
 	}
