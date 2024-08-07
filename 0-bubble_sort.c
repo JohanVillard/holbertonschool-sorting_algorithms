@@ -21,9 +21,10 @@ void bubble_sort(int *array, size_t size)
 	{
 		swap_flag = 0; /* Reset counter of swap */
 		/* One pass --> Iterate in array */
-		for (i = 0; i < size; i++)
+		/* size - 1 because we check last element with array[i + 1]*/
+		for (i = 0; i < size - 1; i++)
 		{
-			if ((array[i] > array[i + 1]) && array[i + 1] != '\0')	/* If true */
+			if (array[i] > array[i + 1])	/* If true */
 			{
 				temp = array[i + 1];		/* Swap number */
 				array[i + 1] = array[i];
