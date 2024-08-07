@@ -28,6 +28,7 @@ void selection_sort(int *array, size_t size)
 				array[i] = array[j];	/* Swap */
 				array[j] = least_element;
 				flag = 1;	/* Loop don't stop */
+				print_array(array, size);
 			}
 		}
 		j++;	/* Go to next index to check and sort */
