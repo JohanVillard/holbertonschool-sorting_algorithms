@@ -11,7 +11,7 @@ void selection_sort(int *array, size_t size)
 	size_t i, j = 0;
 	int least_element, flag = 1;
 
-	if (size < 2 || array == NULL)	/* No need to sort */
+	if (size < 2)	/* No need to sort */
 		return;
 	/* Check each index from O to size by each index from O to size */
 	while (flag != 0)
