@@ -39,7 +39,7 @@ void swap(int *pivot_num, int *num)
 size_t partitioning(int *array, size_t low, size_t high, size_t size)
 {
 
-    // initialize pivot to be the first element
+    /* initialize pivot to be the first element */
     int pivot = array[low];
     size_t i = low;
     size_t j = high;
