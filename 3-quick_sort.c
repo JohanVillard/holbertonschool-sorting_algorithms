@@ -62,6 +62,7 @@ size_t partitioning(int *array, size_t low, size_t high, size_t size)
 
 		/* swap element at i with element at j */
 		swap(&array[i], &array[j]);
+		print_array(array, size);
 		}
 	}
 
