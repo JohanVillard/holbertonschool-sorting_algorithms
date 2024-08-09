@@ -44,24 +44,24 @@ size_t partitioning(int *array, size_t low, size_t high, size_t size)
   size_t i = (low - 1);
   size_t j;
 
-  // traverse each element of the array
-  // compare them with the pivot
+  /* traverse each element of the array */
+  /* compare them with the pivot */
   for (j = low; j <= high - 1; j++) {
     if (array[j] < pivot)
 	{     
-      // if element smaller than pivot is found
-      // swap it with the greater element pointed by i
+      /* if element smaller than pivot is found */
+      /* swap it with the greater element pointed by i */
       i++;
       
-      // swap element at i with element at j
+      /* swap element at i with element at j */
       swap(&array[i], &array[j]);
     }
   }
 
-  // swap the pivot element with the greater element at i
+  /* swap the pivot element with the greater element at i */
   swap(&array[i + 1], &array[high]);
   print_array(array, size);
-  // return the partition point
+  /* return the partition point */
   return (i + 1);
 }
 
