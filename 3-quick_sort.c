@@ -38,33 +38,31 @@ void swap(int *pivot_num, int *num)
  */
 size_t partitioning(int *array, size_t low, size_t high, size_t size)
 {
+	int pivot = array[high];
+  
+  /* Indicates the index of the smaller element and the right position of the pivot */
+  size_t i = (low - 1);
+  size_t j;
 
-    /* initialize pivot to be the first element */
-    int pivot = array[low];
-    size_t i = low;
-    size_t j = high;
-
-    while (i < j) {
-
-        /* condition 1: find the first element greater than */
-        /* the pivot (from starting) */
-        while (array[i] <= pivot && i <= high - 1)
-            i++;
-        /* condition 2: find the first element smaller than */
-       	/* the pivot (from last) */
-        while (array[j] > pivot && j >= low + 1)
-            j--;
-
-		if (i < j)
-		{
-            swap(&array[i], &array[j]);
-			print_array(array, size);
-        }
-
+  // traverse each element of the array
+  // compare them with the pivot
+  for (j = low; j <= high - 1; j++) {
+    if (array[j] < pivot)
+	{     
+      // if element smaller than pivot is found
+      // swap it with the greater element pointed by i
+      i++;
+      
+      // swap element at i with element at j
+      swap(&array[i], &array[j]);
     }
-    swap(&array[low], &array[j]);
-	print_array(array, size);
-    return j;
+  }
+
+  // swap the pivot element with the greater element at i
+  swap(&array[i + 1], &array[high]);
+  print_array(array, size);
+  // return the partition point
+  return (i + 1);
 }
 
 /**
@@ -79,7 +77,10 @@ void recursion_quick_sort(int *array, size_t low, size_t high, size_t size)
  	{
 		size_t j = partitioning(array, low, high, size);
 
-		recursion_quick_sort(array, low, j - 1, size);
+		if (j != 0)
+			recursion_quick_sort(array, low, j - 1, size);
+		
+		
 		recursion_quick_sort(array, j + 1, high, size);
 	}
 }
